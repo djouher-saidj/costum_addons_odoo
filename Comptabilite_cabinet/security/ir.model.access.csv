@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_entreprise,access_entreprise,model_comptabilite_entreprise,,1,1,1,1
+access_compte,access_compte,model_comptabilite_compte,,1,1,1,1
+access_ecriture,access_ecriture,model_comptabilite_ecriture,,1,1,1,1

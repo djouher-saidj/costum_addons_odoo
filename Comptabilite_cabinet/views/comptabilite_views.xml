@@ -1,0 +1,120 @@
+<odoo>
+    <!-- Menu principal -->
+    <menuitem id="menu_comptabilite_cabinet" name="Comptabilité Cabinet" sequence="10"/>
+
+    <!-- Sous-menu Entreprises -->
+    <menuitem id="menu_entreprises" name="Entreprises" parent="menu_comptabilite_cabinet" sequence="10"/>
+    <record id="view_entreprise_tree" model="ir.ui.view">
+        <field name="name">entreprise.tree</field>
+        <field name="model">comptabilite.entreprise</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="nif"/>
+                <field name="secteur"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_entreprise_form" model="ir.ui.view">
+        <field name="name">entreprise.form</field>
+        <field name="model">comptabilite.entreprise</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="nif"/>
+                        <field name="secteur"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_entreprises" model="ir.actions.act_window">
+        <field name="name">Entreprises</field>
+        <field name="res_model">comptabilite.entreprise</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_entreprises_action" name="Entreprises" parent="menu_comptabilite_cabinet"
+              action="action_entreprises"/>
+
+    <!-- Sous-menu Comptes -->
+    <menuitem id="menu_comptes" name="Comptes" parent="menu_comptabilite_cabinet" sequence="20"/>
+    <record id="view_compte_tree" model="ir.ui.view">
+        <field name="name">compte.tree</field>
+        <field name="model">comptabilite.compte</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="entreprise_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_compte_form" model="ir.ui.view">
+        <field name="name">compte.form</field>
+        <field name="model">comptabilite.compte</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="entreprise_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_comptes" model="ir.actions.act_window">
+        <field name="name">Comptes</field>
+        <field name="res_model">comptabilite.compte</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_comptes_action" name="Comptes" parent="menu_comptabilite_cabinet"
+              action="action_comptes"/>
+
+    <!-- Sous-menu Écritures -->
+    <menuitem id="menu_ecritures" name="Écritures" parent="menu_comptabilite_cabinet" sequence="30"/>
+    <record id="view_ecriture_tree" model="ir.ui.view">
+        <field name="name">ecriture.tree</field>
+        <field name="model">comptabilite.ecriture</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="compte_id"/>
+                <field name="entreprise_id"/>
+                <field name="debit"/>
+                <field name="credit"/>
+                <field name="date"/>
+                <field name="numero_piece"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_ecriture_form" model="ir.ui.view">
+        <field name="name">ecriture.form</field>
+        <field name="model">comptabilite.ecriture</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="compte_id"/>
+                        <field name="entreprise_id"/>
+                        <field name="debit"/>
+                        <field name="credit"/>
+                        <field name="date"/>
+                        <field name="numero_piece"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_ecritures" model="ir.actions.act_window">
+        <field name="name">Écritures</field>
+        <field name="res_model">comptabilite.ecriture</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_ecritures_action" name="Écritures" parent="menu_comptabilite_cabinet"
+              action="action_ecritures"/>
+</odoo>

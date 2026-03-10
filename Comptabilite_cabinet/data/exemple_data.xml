@@ -1,0 +1,37 @@
+<odoo>
+    <!-- Entreprises -->
+    <record id="entreprise_1" model="comptabilite.entreprise">
+        <field name="name">Entreprise Alpha</field>
+        <field name="nif">123456789</field>
+        <field name="secteur">Commerce</field>
+    </record>
+
+    <record id="entreprise_2" model="comptabilite.entreprise">
+        <field name="name">Entreprise Beta</field>
+        <field name="nif">987654321</field>
+        <field name="secteur">Services</field>
+    </record>
+
+    <!-- Comptes pour Alpha -->
+    <record id="caisse_alpha" model="comptabilite.compte">
+        <field name="name">Caisse</field>
+        <field name="code">101</field>
+        <field name="entreprise_id" ref="entreprise_1"/>
+    </record>
+    <record id="banque_alpha" model="comptabilite.compte">
+        <field name="name">Banque</field>
+        <field name="code">102</field>
+        <field name="entreprise_id" ref="entreprise_1"/>
+    </record>
+
+    <!-- Écritures pour Alpha -->
+    <record id="ecriture1_alpha" model="comptabilite.ecriture">
+        <field name="name">Encaissement client</field>
+        <field name="compte_id" ref="caisse_alpha"/>
+        <field name="entreprise_id" ref="entreprise_1"/>
+        <field name="debit">1000.0</field>
+        <field name="credit">0.0</field>
+        <field name="date">2026-03-09</field>
+        <field name="numero_piece">FAC001</field>
+    </record>
+</odoo>
